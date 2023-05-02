@@ -7,23 +7,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
-    @RequestMapping("/sbb")
+
+    @GetMapping("/sbb")
     @ResponseBody
     public String index() {
-        System.out.println("접근 잘되네");
-
-        return "ㅎ2";
+        return "안녕하세요 sbb에 오신것을 환영합니다.";
     }
 
-    @GetMapping("/page1")
-    @ResponseBody
-    public String showPage1() {
-        return "<div>test</div>";
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/question/list";
     }
 
-    @GetMapping("/plus")
-    @ResponseBody
-    public int showPlus(int a, int b) {
-        return a + b;
-    }
+
+
 }
