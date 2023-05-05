@@ -1,6 +1,7 @@
 package com.sbb.exam.sbb.question;
 import java.util.List;
 
+import com.sbb.exam.sbb.answer.AnswerForm;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,15 +25,23 @@ public class QuestionController {
     }
 
     @GetMapping(value = "/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
         return "question_detail";
     }
 
-
-    @PostMapping("/create")
+    @GetMapping("/create")
     public String questionCreate(QuestionForm questionForm) {
         return "question_form";
+    }
+
+    @PostMapping("/create")
+    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "question_form";
+        }
+        this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+        return "redirect:/question/list"; // 질문 저장후 질문목록으로 이동
     }
 }
