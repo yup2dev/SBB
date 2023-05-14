@@ -3,6 +3,7 @@ package com.sbb.exam.sbb.answer;
 import java.time.LocalDateTime;
 
 import com.sbb.exam.sbb.question.Question;
+import com.sbb.exam.sbb.user.SiteUser;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -24,4 +25,7 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }
