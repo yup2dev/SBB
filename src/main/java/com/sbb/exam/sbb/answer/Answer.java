@@ -1,6 +1,7 @@
 package com.sbb.exam.sbb.answer;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import com.sbb.exam.sbb.question.Question;
 import com.sbb.exam.sbb.user.SiteUser;
@@ -30,4 +31,7 @@ public class Answer {
     private SiteUser author;
 
     private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
