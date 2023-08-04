@@ -22,17 +22,17 @@ text-color : light;
 
 .btn {
 background: #CDC2AE;
-color: #2B3467;
+color: #E55807;
 border-top:1px solid lightgray;
 border-right:1px solid lightgray;
 border:bottom:1px solid lightgray;
 }
 .btn:hover {
-background: #967E76;
+background: #7E1717;
 }
 
 .table-head {
-background : #C2DEDC;
+background : #068DA9;
 color:#2B3467;
 }
 
